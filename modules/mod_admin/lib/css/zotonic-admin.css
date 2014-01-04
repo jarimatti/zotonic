@@ -75,6 +75,10 @@ body.noframe > div.container {
     background: transparent;
 }
 
+.icon-white {
+    color: white;
+}
+
 /* nav 
 --------------------------------------------------------- */
 nav.navbar ul.nav i.icon-white {
