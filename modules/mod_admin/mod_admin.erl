@@ -22,7 +22,7 @@
 
 -mod_title("Admin module").
 -mod_description("Provides administrative interface for editing pages, media, users etc.").
--mod_depends([base, authentication]).
+-mod_depends([base, authentication, bootstrap]).
 -mod_provides([admin]).
 -mod_prio(1000).
 
