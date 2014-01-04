@@ -16,9 +16,9 @@
 {% block widget_headline %}
     {{ headline }}
     {% if media %}
-        {% button class="btn btn-mini pull-right" action={redirect dispatch="admin_media"} text=_"show all"%}
+        {% button class="btn btn-default btn-xs pull-right" action={redirect dispatch="admin_media"} text=_"show all"%}
     {% else %}
-        {% button class="btn btn-mini pull-right" action={redirect dispatch="admin_overview_rsc" qcat=cat} text=_"show all"%}
+        {% button class="btn btn-default btn-xs pull-right" action={redirect dispatch="admin_overview_rsc" qcat=cat} text=_"show all"%}
     {% endif %}
 {% endblock %}
 
@@ -44,8 +44,8 @@
             <td>
                 {{ id.category_id.short_title|default:id.category_id.title }}
                 <span class="pull-right">
-                    {% if id.page_url %}<a href="{{ id.page_url }}" class="btn btn-mini">{_ view _}</a>{% endif %}
-                    <a href="{% url admin_edit_rsc id=id %}" class="btn btn-mini">{_ edit _}</a>
+                    {% if id.page_url %}<button href="{{ id.page_url }}" class="btn btn-default btn-xs">{_ view _}</button>{% endif %}
+                    <button href="{% url admin_edit_rsc id=id %}" class="btn btn-default btn-xs">{_ edit _}</button>
                 </span>
             </td>
         </tr>
