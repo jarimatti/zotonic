@@ -64,23 +64,23 @@ hr {
         /* background: url("/lib/images/admin_bg.jpg") repeat-x scroll center top #f1f1f1; */
     }
 }
-body > div.container-fluid {
+body > div.container {
     margin-top: 0;
     margin-bottom: 40px;
 }
 hr {
     width: 100%;
 }
-body.noframe > div.container-fluid {
+body.noframe > div.container {
     background: transparent;
 }
 
 /* nav 
 --------------------------------------------------------- */
-div.navbar ul.nav i.icon-white {
+nav.navbar ul.nav i.icon-white {
     opacity: 0.8;
 }
-div.navbar .brand {
+nav.navbar .navbar-brand {
     padding-top: 7px;
     padding-bottom: 0;
 }
@@ -139,7 +139,7 @@ div.cropguide.vert {
     margin-left: 20px;
 }
 @media (max-width: 979px) {
-    body > div.container-fluid {
+    body > div.container {
         margin-top: 0;
     }
     .navbar-fixed-save {
