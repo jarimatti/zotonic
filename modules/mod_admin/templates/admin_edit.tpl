@@ -42,16 +42,16 @@
 {% block admin_edit_form_pre %}{% endblock %}
 
 {% wire id="rscform" type="submit" postback="rscform" %}
-<form id="rscform" method="post" action="postback" class="form-horizontal">
+<form id="rscform" method="post" action="postback" class="form-horizontal" role="form">
 	<input type="hidden" name="id" value="{{ id }}" />
 
-	<div class="row-fluid">
-		<div class="span8" id="poststuff">
+	<div class="row">
+		<div class="col-sm-8" id="poststuff">
             {% block admin_edit_form_top %}{% endblock %}
 			{% catinclude "_admin_edit_main_parts.tpl" id is_editable=is_editable languages=languages r=r %}
 		</div>
 
-		<div class="span4" id="sidebar">
+		<div class="col-sm-4" id="sidebar">
 			{% catinclude "_admin_edit_sidebar_parts.tpl" id is_editable=is_editable languages=languages r=r %}
 		</div>
 	</div>
