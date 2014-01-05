@@ -1,5 +1,5 @@
-<div class="pagination pagination-centered">
-    <ul>
+<div class="text-center">
+    <ul class="pagination">
         <li {% if not prev_url %}class="disabled"{% endif %}><a href="{{ prev_url }}#content-pager">←</a></li>
         {% for nr, url in pages %}
             {% if nr %}

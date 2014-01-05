@@ -4,25 +4,23 @@
 
 {% block content %}
 
-<form id="{{ #form }}" method="GET" action="{% url admin_overview_rsc qs=q.qs %}" class="form-horizontal">
+<form id="{{ #form }}" method="GET" action="{% url admin_overview_rsc qs=q.qs %}" class="form-inline" role="form">
     <div class="pull-right">
 	{% with q.qcat as qcat %}
-        <div class="control-group">
+        <div class="form-group">
 	    <label class="control-label" for="{{ #category }}">{_ Filter on category _}</label>
-            <div class="controls">
-	        <select id="{{ #category }}" name="qcat">
-	            <option value="">{_ All Categories _}</option>
-	            <option disabled="disabled"></option>
-	            {% for cat_id, level, indent, name in m.category.all_flat %}
-	            {% if m.acl.insert[name|as_atom] %}
-	            <option value="{{ name }}" {% ifequal name qcat %}selected="selected" {% endifequal %}>
-		        {{ indent }}{{ m.rsc[cat_id].title|default:name }}
-	            </option>
-	            {% endif %}
-	            {% endfor %}
-	        </select>
-	        {% wire type="change" id=#category action={submit} %}
-            </div>
+            <select id="{{ #category }}" name="qcat" class="form-control">
+                <option value="">{_ All Categories _}</option>
+                <option disabled="disabled"></option>
+                {% for cat_id, level, indent, name in m.category.all_flat %}
+                {% if m.acl.insert[name|as_atom] %}
+                <option value="{{ name }}" {% ifequal name qcat %}selected="selected" {% endifequal %}>
+    	        {{ indent }}{{ m.rsc[cat_id].title|default:name }}
+                </option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            {% wire type="change" id=#category action={submit} %}
         </div>
 	{% endwith %}
     </div>
@@ -47,13 +45,13 @@
 
     {% all include "_admin_make_page_buttons.tpl" %}
 
-    <a class="btn disabled" href="{% url admin_overview_rsc %}">{_ All pages _}</a>
-    <a class="btn" href="{% url admin_media %}">{_ All media _}</a>
+    <a class="btn btn-default disabled" href="{% url admin_overview_rsc %}">{_ All pages _}</a>
+    <a class="btn btn-default" href="{% url admin_media %}">{_ All media _}</a>
 </div>
 
 {% with m.search.paged[{query authoritative=1 cat=q.qcat text=q.qs page=q.page sort=q.qsort|default:"-modified"}] as result %}
-	{% catinclude "_admin_overview_list.tpl" m.category[q.qcat].is_a result=result %}
-	{% pager result=result dispatch="admin_overview_rsc" qargs hide_single_page=1 %}
+    {% catinclude "_admin_overview_list.tpl" m.category[q.qcat].is_a result=result %}
+    {% pager result=result dispatch="admin_overview_rsc" qargs hide_single_page=1 %}
 {% endwith %}
 
 {% endblock %}
