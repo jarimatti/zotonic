@@ -11,36 +11,27 @@
 
 <div>
     <div class="well">
-	    <div class="control-group">
-            <div class="controls">
-                {% button class="btn" text=_"Flush system caches" action={admin_tasks task='flush'} %} 
-                <span class="help-inline">{_ Flush all URL dispatch rules, template- and library caches and other in-memory cached data. _}</span>
-            </div>
+	<div class="form-group">
+            {% button class="btn btn-default" text=_"Flush system caches" action={admin_tasks task='flush'} %} 
+            <span>{_ Flush all URL dispatch rules, template- and library caches and other in-memory cached data. _}</span>
         </div>
 
-	    <div class="control-group">
-            <div class="controls">
-                {% button class="btn" text=_"Rebuild search indices" action={admin_tasks task='pivot_all'} %}
-                {% with m.admin_rsc.pivot_queue_count as cnt %}
-                    {% if cnt %}<span class="label label-info">{_ Pivot queue count size: _} {{ cnt }}</span>{% endif %}
+        <div class="form-group">
+            {% button class="btn btn-default" text=_"Rebuild search indices" action={admin_tasks task='pivot_all'} %}
+            {% with m.admin_rsc.pivot_queue_count as cnt %}
+                {% if cnt %}<span class="label label-info">{_ Pivot queue count size: _} {{ cnt }}</span>{% endif %}
                 {% endwith %}
-                <span class="help-inline">{_ Rebuild all search-indices by putting all pages and data from the database in the indexer queue. This can take a long time! _}</span>
-                </span>
-            </div>
+            <span>{_ Rebuild all search-indices by putting all pages and data from the database in the indexer queue. This can take a long time! _}</span>
         </div>
 
-	    <div class="control-group">
-            <div class="controls">
-                {% button class="btn" text=_"Renumber category tree" action={admin_tasks task='renumber_categories'} %}
-                <span class="help-inline">{_ Recalculate the numbering of the category tree. This can take a long time. _}</span>
-            </div>
+        <div class="form-group">
+            {% button class="btn btn-default" text=_"Renumber category tree" action={admin_tasks task='renumber_categories'} %}
+            <span class="help-inline">{_ Recalculate the numbering of the category tree. This can take a long time. _}</span>
         </div>
 
-	    <div class="control-group">
-            <div class="controls">
-                {% button class="btn" text=_"Reinstall site datamodel" action={admin_tasks task='site_reinstall'} %} 
-                <span class="help-inline">{_ Runs the schema install command from the site's module again. _}</span>
-            </div>
+        <div class="form-group">
+            {% button class="btn btn-default" text=_"Reinstall site datamodel" action={admin_tasks task='site_reinstall'} %} 
+            <span class="help-inline">{_ Runs the schema install command from the site's module again. _}</span>
         </div>
 
 	{% all include "_admin_status.tpl" %}
