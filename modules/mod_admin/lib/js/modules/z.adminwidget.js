@@ -31,7 +31,7 @@ $.widget("z.adminwidget",
 	    self.header = self.element.find("h3:first");
         self.tabs = self.element.find(".language-tabs");
         if (self.options.minifier) {
-            self.icon = $("<i>").appendTo(self.header);
+            self.icon = $("<span>").appendTo(self.header);
             self.header
                 .css("cursor", "pointer")
                 .bind("mouseover", function(){self.icon.addClass('icon-white');})
@@ -47,8 +47,8 @@ $.widget("z.adminwidget",
 
     toggle: function(ev) {
     	if (	$(ev.target).hasClass('widget-header')
-    		||	$(ev.target).hasClass('icon-plus')
-    		||	$(ev.target).hasClass('icon-minus')) {
+    		||	$(ev.target).hasClass('glyphicon-plus')
+    		||	$(ev.target).hasClass('glyphicon-minus')) {
 		    var self = this;
 		    var id = self.element.attr("id");
 		    self.setVisible(!self.showing);
@@ -70,7 +70,7 @@ $.widget("z.adminwidget",
 	        self.item.slideUp(200);
         if (self.tabs)
             self.tabs.hide();
-	    self.icon.attr("class", "pull-right icon-plus");
+	    self.icon.attr("class", "pull-right glyphicon glyphicon-plus");
 	    self.showing = false;
     },
 
@@ -83,7 +83,7 @@ $.widget("z.adminwidget",
         if (self.tabs)
             self.tabs.show();
 	    if (self.icon)
-            self.icon.attr("class", "pull-right icon-minus");
+            self.icon.attr("class", "pull-right glyphicon glyphicon-minus");
 	    self.showing = true;
     }
 });
