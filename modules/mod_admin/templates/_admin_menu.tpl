@@ -2,7 +2,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
 
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -13,7 +13,7 @@
 
         <div class="collapse navbar-collapse">
             {% block search %}
-            <form class="pull-right navbar-form form-search" action="{% block search_target %}{% url admin_overview_rsc %}{% endblock %}" method="get" role="search">
+            <form class="navbar-right navbar-form form-search" action="{% block search_target %}{% url admin_overview_rsc %}{% endblock %}" method="get" role="search">
                     <input type="hidden" name="qsort" value="{{ q.qsort|escape }}" />
                     <input type="hidden" name="qcat" value="{{ q.qcat|escape }}" />
                     <input class="form-control search-query" type="text" name="qs" value="{{q.qs|escape}}" placeholder="Search..." />
@@ -55,7 +55,7 @@
                 </li>
             </ul>
 
-            <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav navbar-right">
                 {% all include "_admin_headeritem.tpl" %}
             </ul>
 
