@@ -13,7 +13,8 @@
 	{% all include "_html_head.tpl" %}
 
 	{% lib
-		"bootstrap/css/bootstrap.min.css"
+		"bootstrap-3/css/bootstrap.min.css"
+		"bootstrap-3/css/bootstrap-theme.min.css"
 		"css/jquery.loadmask.css" 
 		"css/project.css"
 	%}
@@ -29,7 +30,7 @@
             {% endblock %}
 
             <div class="row">
-                <div class="span12" id="content-area">
+                <div class="col-sm-12" id="content-area">
 		    {% block content_area %}
 		    {% block content %}{% endblock %}
 		    {% block sidebar %}{% endblock %}
@@ -38,7 +39,7 @@
             </div>
 	    
             <div class="row">
-                <div class="span12" id="footer">
+                <div class="col-sm-12" id="footer">
 		    {% include "_footer.tpl" %}
                 </div>
             </div>

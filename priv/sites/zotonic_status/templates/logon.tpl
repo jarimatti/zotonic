@@ -4,7 +4,7 @@
 {% block navbar %}{% endblock %}
 
 {% block content %}
-<div class="hero-unit">
+<div class="jumbotron">
     <h1>{_ Powered by Zotonic _}</h1>
     <p>
         {_ Welcome, visitor! The page you are
@@ -25,13 +25,13 @@
     <h2>{_ Log on to manage this server _}</h2>
     <p class="help-block">{_ To manage the sites on this server, please enter the main admin password. _}</p>
     <form id="logon_form" action="postback" class="form-inline">
-	<p id="error-pw" class="alert alert-error">The password does not match.  Please retry.</p>
+	<p id="error-pw" class="alert alert-danger">The password does not match.  Please retry.</p>
 	<div id="logon_password">
 	    <div style="display:none">
 		<input type="text" id="username" name="username" value="admin"  />
 	    </div>
 	    <p>
-		<label>{_ Password _}:&nbsp;</label>
+		<span>{_ Password _}:&nbsp;</span>
 		<input type="password" id="password" name="password" value="" autofocus />
 	        <button class="btn btn-primary">{_ Log On _}</button>
 	    </p>
