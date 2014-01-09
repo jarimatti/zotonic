@@ -10,7 +10,6 @@
 
         {% lib
                 "bootstrap-3/css/bootstrap.min.css"
-                "bootstrap-3/css/bootstrap-theme.min.css"
 
                 "css/jquery-ui.datepicker.css"
                 "css/jquery.timepicker.css"
