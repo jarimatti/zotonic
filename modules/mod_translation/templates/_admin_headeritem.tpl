@@ -9,7 +9,7 @@
 	{% for code,lang in list %}
 	{% if all or lang.is_enabled %}
 	<li><a href="#" id="{{ #l.code }}">
-            {% if z_language == code %}<i class="icon-ok"></i>{% else %}<i class="icon-ok icon-white"></i>{% endif %}
+            {% if z_language == code %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-ok icon-white"></span>{% endif %}
         {{ lang.language }}</a></li>
 	{% wire id=#l.code postback={set_language code=code} delegate="mod_translation" %}
         {% endif %}
