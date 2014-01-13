@@ -45,11 +45,17 @@
                  if (typeof(options.addclass) == "string")
                      dialogClass += ' ' + options.addclass;
 
+                 var modal_content = $("<div>").addClass("modal-content")
+                     .append(title)
+                     .append(body);
+
+                 var modal_dialog = $("<div>").addClass("modal-dialog")
+                     .append(modal_content);
+
                  var dialog = $("<div>")
                      .attr("id", "zmodal")
                      .addClass(dialogClass)
-                     .append(title)
-                     .append(body)
+                     .append(modal_dialog)
                      .appendTo($("body"));
 
                  dialog.modal({backdrop: true});
